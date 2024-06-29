@@ -32,7 +32,7 @@ jobs:
       
     - name: Build app
       run: |
-       xcodebuild -project StackProblem1 \
+       xcodebuild -project StackProblem1.xcodeproj \
         -scheme StackProblem1 \
         -sdk iphonesimulator \
         -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2'
