@@ -28,3 +28,6 @@ jobs:
 
     - name: List directory contents
       run: ls -al
+      
+    - name: Build
+      run: swift build
