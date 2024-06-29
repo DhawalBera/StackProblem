@@ -5,7 +5,7 @@ name: Swift
 
 on:
   push:
-    branches: [ "origin/CI-CD-Testing" ]
+    branches: [ "CI-CD-Testing" ]
   pull_request:
     branches: [ "master" ]
 
