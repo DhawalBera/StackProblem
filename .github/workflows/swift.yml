@@ -17,11 +17,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
-    - name: Set up Swift
-      uses: fwal/setup-swift@v1
-      with:
-        swift-version: '5.6'
+      
+    - name: Force Xcode 11
+      run: sudo xcode-select -switch /Applications/Xcode_11.5.app
 
     - name: Print working directory
       run: pwd
@@ -30,5 +28,4 @@ jobs:
       run: ls -al
       
     - name: Build
-      working-directory: StackProblem1
       run: swift build -v
