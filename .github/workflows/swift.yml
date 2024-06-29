@@ -29,6 +29,9 @@ jobs:
 
     - name: List directory contents
       run: ls -al
+
+    - name: Build list
+      run: xcodebuild -list
       
     - name: Build app
       run: |
