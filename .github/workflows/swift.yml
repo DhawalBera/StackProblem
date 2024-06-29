@@ -30,4 +30,5 @@ jobs:
       run: ls -al
       
     - name: Build
+      working-directory: StackProblem1
       run: swift build -v
