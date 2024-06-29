@@ -35,8 +35,8 @@ jobs:
       
     - name: Build app
       run: |
-       xcodebuild -project StackProblem \
+       xcodebuild -project StackProblem1.xcodeproj \
         -scheme StackProblem1 \
         -sdk iphonesimulator \
-        -destination 'platform:iOS Simulator, id:C4607EA8-660F-460C-BB4E-121AC02D737C, OS:17.5, name:iPhone 15'
+        -destination 'platform:iOS Simulator, OS:17.5, name:iPhone 15'
       
