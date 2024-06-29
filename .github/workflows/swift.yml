@@ -5,13 +5,13 @@ name: Swift
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "origin/CI-CD-Testing" ]
   pull_request:
     branches: [ "master" ]
 
 jobs:
   build:
-
+    name: Build
     runs-on: macos-latest
 
     steps:
