@@ -15,6 +15,16 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build
-      run: xcodebuild test -scheme StackProblem1 -destination 'platform=iOS Simulator,name=iPhone 13 Pro'
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Swift
+      uses: fwal/setup-swift@v1
+      with:
+        swift-version: '5.6'
+
+    - name: Print working directory
+      run: pwd
+
+    - name: List directory contents
+      run: ls -al
