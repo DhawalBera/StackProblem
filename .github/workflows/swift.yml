@@ -30,4 +30,4 @@ jobs:
       run: ls -al
       
     - name: Build
-      run: swift build
+      run: swift build -v
