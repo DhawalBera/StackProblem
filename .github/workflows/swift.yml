@@ -30,5 +30,10 @@ jobs:
     - name: List directory contents
       run: ls -al
       
-    - name: Build
-      run: swift build -v
+    - name: Build app
+      run: |
+       xcodebuild -project StackProblem1 \
+        -scheme StackProblem1 \
+        -sdk iphonesimulator \
+        -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2'
+      
