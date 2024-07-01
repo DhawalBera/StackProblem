@@ -18,17 +18,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: List available Xcode versions
-        run: ls /Applications | grep Xcode
+      #- name: List available Xcode versions
+       # run: ls /Applications | grep Xcode
 
-      - name: Set up Xcode version
-        run: sudo xcode-select -s /Applications/Xcode_15.2.app/Contents/Developer
+     # - name: Set up Xcode version
+      #  run: sudo xcode-select -s /Applications/Xcode_15.2.app/Contents/Developer
 
-      - name: Print working directory
-        run: pwd
+     # - name: Print working directory
+      #  run: pwd
 
-      - name: List directory contents
-        run: ls -al
+     # - name: List directory contents
+      #  run: ls -al
 
       - name: Build list
         run: xcodebuild -list
