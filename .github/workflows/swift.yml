@@ -18,18 +18,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      #- name: List available Xcode versions
-       # run: ls /Applications | grep Xcode
-
-     # - name: Set up Xcode version
-      #  run: sudo xcode-select -s /Applications/Xcode_15.2.app/Contents/Developer
-
-     # - name: Print working directory
-      #  run: pwd
-
-     # - name: List directory contents
-      #  run: ls -al
-
       - name: Build list
         run: xcodebuild -list
 
@@ -42,12 +30,20 @@ jobs:
 
       - name: Build and Archive
         run: |
-          set -o pipefail && xcodebuild -project StackProblem1.xcodeproj \ 
-          -scheme StackProblem1 \
-          -sdk iphoneos \
-          -configuration Release archive \
-          -archivePath $PWD/build/StackProblem1.xcarchive | xcpretty
-        working-directory: StackProblem1
+          set -o pipefail && xcodebuild -project StackProblem1.xcodeproj \
+                                        -scheme StackProblem1 \
+                                        -sdk iphoneos \
+                                        -configuration Release archive \
+                                        -archivePath $PWD/build/StackProblem1.xcarchive | xcpretty
+        working-directory: .
+
+      - name: Export Archive
+        run: |
+          xcodebuild -exportArchive \
+                     -archivePath $PWD/build/StackProblem1.xcarchive \
+                     -exportOptionsPlist exportOptions.plist \
+                     -exportPath $PWD/build
+        working-directory: .
 
       - name: Upload Archive
         uses: actions/upload-artifact@v2
