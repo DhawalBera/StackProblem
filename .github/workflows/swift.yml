@@ -39,3 +39,18 @@ jobs:
                      -scheme StackProblem1 \
                      -sdk iphonesimulator \
                      -destination 'platform=iOS Simulator,OS=17.5,name=iPhone 15'
+
+      - name: Build and Archive
+        run: |
+          set -o pipefail && xcodebuild -project StackProblem1.xcodeproj \ 
+          -scheme StackProblem1 \
+          -sdk iphoneos \
+          -configuration Release archive \
+          -archivePath $PWD/build/StackProblem1.xcarchive | xcpretty
+        working-directory: StackProblem1
+
+      - name: Upload Archive
+        uses: actions/upload-artifact@v2
+        with:
+          name: StackProblem1.ipa
+          path: build/StackProblem1.ipa
