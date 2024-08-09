@@ -14,6 +14,7 @@ class ViewController1: ViewController {
         super.viewDidLoad()
 
         print("Viewcontroller1 Testing")
+        print("commit Testing")
     }
 
 }
