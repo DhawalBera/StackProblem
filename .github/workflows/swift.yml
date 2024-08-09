@@ -34,7 +34,7 @@ jobs:
                                         -scheme StackProblem1 \
                                         -sdk iphoneos \
                                         -configuration Release archive \
-                                        -archivePath $PWD/build/StackProblem1.xcarchive | xcpretty
+                                        -archivePath $PWD/build/StackProblem1.xcarchive
         working-directory: .
 
       - name: Export Archive
@@ -45,8 +45,3 @@ jobs:
                      -exportPath $PWD/build
         working-directory: .
 
-      - name: Upload Archive
-        uses: actions/upload-artifact@v2
-        with:
-          name: StackProblem1.ipa
-          path: build/StackProblem1.ipa
