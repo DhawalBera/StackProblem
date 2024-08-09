@@ -13,7 +13,8 @@ class ViewController1: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("Viewcontroller1")
+        print("Viewcontroller1 Testing")
+        print("commit Testing")
     }
 
 }

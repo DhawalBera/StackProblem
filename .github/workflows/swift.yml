@@ -1,0 +1,49 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: Swift
+
+on:
+  push:
+    branches: [ "CI-CD-Testing" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build list
+        run: xcodebuild -list
+
+      - name: Build app
+        run: |
+          xcodebuild -project StackProblem1.xcodeproj \
+                     -scheme StackProblem1 \
+                     -sdk iphonesimulator \
+                     -destination 'platform=iOS Simulator,OS=17.5,name=iPhone 15'
+
+      - name: Build and Archive
+        run: |
+          set -o pipefail && xcodebuild -project StackProblem1.xcodeproj \
+                                        -scheme StackProblem1 \
+                                        -sdk iphoneos \
+                                        -configuration Release archive \
+                                        -archivePath $GITHUB_WORKSPACE/build/StackProblem1.xcarchive \
+                                        -allowProvisioningUpdates 
+                                        -destination 'platform=iOS,name=iPhone 14 Pro'
+        working-directory: .
+
+      - name: Export Archive
+        run: |
+          xcodebuild -exportArchive \
+                     -archivePath $PWD/build/StackProblem1.xcarchive \
+                     -exportOptionsPlist exportOptions.plist \
+                     -exportPath $PWD/build
+        working-directory: .
+
