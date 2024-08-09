@@ -35,7 +35,8 @@ jobs:
                                         -sdk iphoneos \
                                         -configuration Release archive \
                                         -archivePath $GITHUB_WORKSPACE/build/StackProblem1.xcarchive \
-                                        -allowProvisioningUpdates | xcpretty
+                                        -allowProvisioningUpdates 
+                                        -destination 'platform=iOS,name=iPhone 14 Pro'
         working-directory: .
 
       - name: Export Archive
