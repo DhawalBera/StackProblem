@@ -34,7 +34,8 @@ jobs:
                                         -scheme StackProblem1 \
                                         -sdk iphoneos \
                                         -configuration Release archive \
-                                        -archivePath $PWD/build/StackProblem1.xcarchive
+                                        -archivePath $PWD/build/StackProblem1.xcarchive \
+                                        -allowProvisioningUpdates | xcpretty
         working-directory: .
 
       - name: Export Archive
